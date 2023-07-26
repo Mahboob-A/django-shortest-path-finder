@@ -1,0 +1,136 @@
+body {
+        background-color: #AFEEEE;
+        font-family: Arial, sans-serif;
+}
+
+.container {
+        margin-top: 50px;
+        max-width: 600px;
+        background-color: lavender;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        position: relative;
+}
+
+.header {
+        text-align: center;
+        font-size: 30px;
+        color: #007bff;
+        margin-bottom: 30px;
+}
+
+.form-group {
+        margin-bottom: 20px;
+}
+
+label {
+        font-weight: bold;
+        color: #007bff;
+}
+
+input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+        border-color: #007bff;
+        outline: none;
+}
+
+.btn-submit {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+        background-color: #0056b3;
+}
+
+.result-container {
+        text-align: center;
+        margin-top: 30px;
+}
+
+.shortest-distance {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+}
+
+.shortest-path {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #007bff;
+}
+
+/* Styling for the new form code */
+.form-wrapper {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+}
+
+.form-wrapper label {
+        font-weight: bold;
+        color: #007bff;
+}
+
+.form-wrapper input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+}
+
+.form-wrapper input[type="text"]:focus {
+        border-color: #007bff;
+        outline: none;
+}
+
+.form-wrapper .btn-submit {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+
+.form-wrapper .btn-submit:hover {
+        background-color: #0056b3;
+}
+
+/* Styling for Refresh button */
+.refresh-button {
+        position: absolute;
+        top: -20px;
+        right: -300px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+
+.refresh-button:hover {
+        background-color: #0056b3;
+}
