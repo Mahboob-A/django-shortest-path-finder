@@ -1,3 +1,4 @@
+from asyncio import exceptions
 from django.shortcuts import render
 from collections import defaultdict 
 from heapq import heappop, heappush
@@ -19,8 +20,26 @@ def find_shortest_distance(request):
                         destination_place = form.cleaned_data['destination_place']
                         
                         shortest_distance, shortest_path = dijkstra_shorest_path(source_place, destination_place)
+                        
+                        # If shortest_distance is false, then there is no path bwtween the two places 
+                        if shortest_distance is False : 
+                                context = {'form' : form, 'shortest_distance' : shortest_distance, 'source' : source_place, 'destination' : destination_place}
+                                return render(request, template, context)
+                        
+                        # else there is path 
                         shortest_path = ' --> '.join([place.name for place in shortest_path])
-        return render(request, template, {'form' : form, 'shortest_distance' : shortest_distance, 'shortest_path' : shortest_path}) # 'all_places' : all_places})
+                        
+                        context = {
+                                'form' : form, 
+                                'shortest_distance' : shortest_distance, 
+                                'shortest_path' : shortest_path,
+                        }
+                        return render(request, template, context)
+        else : 
+                context = {
+                        'form' : form, 
+                }  
+                return render(request, template, context) 
 
 
 
@@ -51,21 +70,23 @@ def dijkstra_shorest_path(source, destination):
                                 adjNode = edges.destination_place
                                 weight = edges.distance 
                                 distance_to_adjNode = distance_u + weight
-                                # print(adjNode.name)
-                                # print(distance_to_adjNode)
-                                
+
                                 if distance_to_adjNode < dist[adjNode.id]: 
                                         dist[adjNode.id] = distance_to_adjNode
                                         parent[adjNode.id] = node_u_id
                                         heappush(priority_queue, (distance_to_adjNode, adjNode.id))
+                                                  
         except Exception as e : 
                 raise e 
                 
         
-        # Path Tracing 
-        if destination.id not in parent: 
-                return None 
+        '''Path Tracing''' 
         
+        # if there is no path between the two palces 
+        if destination.id not in parent: 
+                return (False, False)  
+        
+        # else proceeded to trace path 
         shortest_path = []
         curr_node_id = destination.id
         
@@ -78,6 +99,8 @@ def dijkstra_shorest_path(source, destination):
 
         shortest_path.reverse()
         shortest_distance = dist[destination.id]
+        
+                
         
         return shortest_distance, shortest_path 
 

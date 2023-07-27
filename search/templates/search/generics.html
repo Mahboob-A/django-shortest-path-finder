@@ -190,12 +190,19 @@ input[type="text"]:focus {
     </div>
     {% endif %}
 
-    {% if shortest_distance is not None %}
+    {% if shortest_distance  %}
     <div class="result-container">
       <div class="shortest-distance">Shortest Distance: {{ shortest_distance }} km</div>
       <div class="shortest-path">The Shortest path is: {{ shortest_path }}</div>
     </div>
+    
+    {% else %}  <!-- if there is no shortest distance, then 'inf' is passed as shortest distance -->
+    <div class="result-container">
+      <div class="shortest-distance">The is No Path Between {{source}} and {{destination}} </div>
+    </div>
+
     {% endif %}
+    
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
