@@ -74,7 +74,7 @@ input[type="text"]:focus {
         color: #007bff;
 }
 
-/* Styling for the new form code */
+
 .form-wrapper {
         padding: 20px;
         border-radius: 10px;
@@ -116,7 +116,7 @@ input[type="text"]:focus {
         background-color: #0056b3;
 }
 
-/* Styling for Refresh button */
+
 .refresh-button {
         position: absolute;
         top: -20px;
