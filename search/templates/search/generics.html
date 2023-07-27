@@ -121,7 +121,7 @@ input[type="text"]:focus {
         color: #fff;
         border: none;
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 15px;
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;
@@ -140,13 +140,31 @@ input[type="text"]:focus {
         color: #fff;
         border: none;
         padding: 5px 10px;
-        border-radius: 5px;
+        border-radius: 15px;
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;
 }
 
+
 .refresh-button:hover {
+        background-color: #0056b3;
+}
+
+.github-button {
+        position: absolute;
+        top: -20px;
+        right: 800px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+.github-button:hover {
         background-color: #0056b3;
 }
 
@@ -158,6 +176,7 @@ input[type="text"]:focus {
 <body>
   <div class="container">
         <a href="{% url 'find_shortest_distance' %}"><button class="refresh-button"  >Refresh</button></a>
+        <a href="https://github.com/Mahboob-A/django-shortest-path-finder" target="_blank"><button class="github-button"  >Github</button></a>
     <div class="header">Find Shortest Distance</div>
     <div class="form-wrapper">
       <form method="POST">
@@ -198,7 +217,7 @@ input[type="text"]:focus {
     
     {% else %}  <!-- if there is no shortest distance, then 'inf' is passed as shortest distance -->
     <div class="result-container">
-      <div class="shortest-distance">The is No Path Between {{source}} and {{destination}} </div>
+      <div class="shortest-distance">There is No Path Between {{source}} and {{destination}} </div>
     </div>
 
     {% endif %}

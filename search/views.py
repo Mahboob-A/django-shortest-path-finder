@@ -1,4 +1,5 @@
 from asyncio import exceptions
+from platform import node
 from django.shortcuts import render
 from collections import defaultdict 
 from heapq import heappop, heappush
@@ -35,11 +36,11 @@ def find_shortest_distance(request):
                                 'shortest_path' : shortest_path,
                         }
                         return render(request, template, context)
-        else : 
-                context = {
-                        'form' : form, 
-                }  
-                return render(request, template, context) 
+        # get 
+        context = {
+                'form' : form, 
+        }  
+        return render(request, template, context) 
 
 
 
@@ -65,7 +66,7 @@ def dijkstra_shorest_path(source, destination):
                                 continue
                         
                         node_u = Places.objects.get(pk=node_u_id)
-                        
+                        print(node_u)
                         for edges in node_u.source_places.all(): # source_places is related name (in edges : Node A <--> B and cost is present as it is an object of Distance model)
                                 adjNode = edges.destination_place
                                 weight = edges.distance 

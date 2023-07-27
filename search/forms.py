@@ -11,7 +11,11 @@ class ShortestPathForm(forms.Form):
                 source_place = cleaned_data.get('source_place')
                 destination_place = cleaned_data.get('destination_place')
                 
+                print('form : ')
+                print(source_place, " ", destination_place)
+                
                 if source_place == destination_place: 
                         raise forms.ValidationError('Source and Destination can not be same')
+                
                 
                 return cleaned_data
