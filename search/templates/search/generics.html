@@ -214,8 +214,9 @@ input[type="text"]:focus {
       <div class="shortest-distance">Shortest Distance: {{ shortest_distance }} km</div>
       <div class="shortest-path">The Shortest path is: {{ shortest_path }}</div>
     </div>
+    {% endif %}
     
-    {% else %}  <!-- if there is no shortest distance, then 'inf' is passed as shortest distance -->
+    {% if no_path %}  <!-- if there is no shortest distance, then 'inf' is passed as shortest distance -->
     <div class="result-container">
       <div class="shortest-distance">There is No Path Between {{source}} and {{destination}} </div>
     </div>

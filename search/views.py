@@ -24,7 +24,7 @@ def find_shortest_distance(request):
                         
                         # If shortest_distance is false, then there is no path bwtween the two places 
                         if shortest_distance is False : 
-                                context = {'form' : form, 'shortest_distance' : shortest_distance, 'source' : source_place, 'destination' : destination_place}
+                                context = {'form' : form, 'no_path' : True, 'source' : source_place, 'destination' : destination_place}
                                 return render(request, template, context)
                         
                         # else there is path 
@@ -66,7 +66,6 @@ def dijkstra_shorest_path(source, destination):
                                 continue
                         
                         node_u = Places.objects.get(pk=node_u_id)
-                        print(node_u)
                         for edges in node_u.source_places.all(): # source_places is related name (in edges : Node A <--> B and cost is present as it is an object of Distance model)
                                 adjNode = edges.destination_place
                                 weight = edges.distance 
